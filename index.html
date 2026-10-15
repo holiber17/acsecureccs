@@ -87,7 +87,11 @@ a:focus-visible,input:focus-visible+.op__caja{outline:3px solid var(--azul);outl
 .ficha ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 8px}
 .ficha li{font-size:14px;background:rgba(255,255,255,.16);border-radius:999px;padding:4px 12px;backdrop-filter:blur(4px)}
 .ficha a{align-self:flex-start;margin-top:6px;color:#fff;font-weight:700;text-underline-offset:5px}
-@media (max-width:900px){.mosaico{grid-template-columns:minmax(0,1fr)}.ficha,.ficha--alta{grid-column:auto;grid-row:auto;min-height:400px}}
+.ficha--split{grid-column:1/-1;min-height:0;display:grid;grid-template-columns:320px minmax(0,1fr);align-items:stretch;justify-content:stretch}
+.ficha--split::after{display:none}
+.ficha--split img{position:static;width:320px;height:100%;max-height:460px;min-height:340px;object-position:50% 20%}
+.ficha--split .ficha__texto{justify-content:center;padding:36px}
+@media (max-width:900px){.ficha--split{grid-template-columns:minmax(0,1fr)}.ficha--split img{width:100%;height:320px;max-height:none;min-height:0;object-position:50% 25%}.mosaico{grid-template-columns:minmax(0,1fr)}.ficha,.ficha--alta{grid-column:auto;grid-row:auto;min-height:400px}}
 
 /* Por qué */
 .porque{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
@@ -179,8 +183,8 @@ a:focus-visible,input:focus-visible+.op__caja{outline:3px solid var(--azul);outl
           <a href="https://wa.me/584241817197?text=Hola%2C%20quiero%20instalar%20Starlink">Instala tu Starlink hoy</a>
         </div>
       </article>
-      <article id="soporte" class="ficha" style="grid-column:1/-1;min-height:360px">
-        <img loading="lazy" src="soporte.jpg" alt="Técnico de ACSECURECCS reparando la tarjeta madre de una computadora" style="object-position:50% 30%">
+      <article id="soporte" class="ficha ficha--split">
+        <img loading="lazy" src="soporte.jpg" width="320" height="550" alt="Técnico de ACSECURECCS reparando la tarjeta madre de una computadora">
         <div class="ficha__texto">
           <h3>Soporte técnico y reparación de computadoras</h3>
           <p>Diagnóstico gratuito y atención a domicilio.</p>
